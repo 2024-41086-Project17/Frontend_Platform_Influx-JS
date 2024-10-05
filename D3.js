@@ -1,5 +1,9 @@
 import * as d3 from 'd3';
 import { InfluxDB } from '@influxdata/influxdb-client';
+import dotenv from 'dotenv';
+
+// Load environment variables from load.env file
+dotenv.config({ path: 'load.env' });
 
 // InfluxDB connection details
 const url = process.env.INFLUXDB_URL; // Your InfluxDB URL
