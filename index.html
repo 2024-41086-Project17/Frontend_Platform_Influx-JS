@@ -12,7 +12,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f0f2f5;
+            background: url('https://www.transparenttextures.com/patterns/water.png') repeat;
             margin: 0;
             padding: 20px;
         }
@@ -21,7 +21,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
@@ -56,7 +56,7 @@
             margin-bottom: 10px;
         }
 
-        /* Add styles for the axes and lines */
+        /* Styles for the axes and lines */
         .axis path,
         .axis line {
             fill: none;
@@ -70,6 +70,7 @@
             stroke-width: 2;
         }
 
+        /* Line colors */
         .line-temperature {
             stroke: steelblue;
         }
@@ -90,6 +91,27 @@
             stroke: teal;
         }
 
+        /* Legend styles */
+        .legend {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        .legend-item {
+            margin: 0 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
     </style>
 </head>
 <body>
@@ -107,17 +129,20 @@
         <div class="graph-section">
             <div class="graph-title">Environmental Measurements (Temperature, Humidity, Pressure)</div>
             <svg id="environment-graph"></svg>
+            <div class="legend" id="environment-legend"></div>
         </div>
 
         <!-- Graph Section for Water Height Data -->
         <div class="graph-section">
             <div class="graph-title">Water Height Measurements (Radar and Ultrasonic)</div>
             <svg id="water-height-graph"></svg>
+            <div class="legend" id="water-height-legend"></div>
         </div>
     </div>
 
     <!-- Link to the script file for the D3 visualizations -->
-    <script src="D3.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
+
