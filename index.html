@@ -3,87 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FloodTrack Solutions</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom, #e0f7fa, #b2ebf2);
-            margin: 0;
-            padding: 20px;
-            color: #333;
-        }
-        
-        header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            font-size: 2.5em;
-            color: #00796b;
-        }
-
-        h2 {
-            font-size: 1.8em;
-            color: #004d40;
-            margin-bottom: 10px;
-        }
-
-        #environment-graph-container, 
-        #water-height-graph-container {
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        svg {
-            width: 100%;
-            height: 400px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        #environment-legend, 
-        #water-height-legend {
-            display: flex;
-            flex-wrap: wrap;
-            margin-top: 10px;
-            font-size: 1em;
-        }
-
-        #environment-legend div,
-        #water-height-legend div {
-            display: flex;
-            align-items: center;
-            margin-right: 20px;
-        }
-
-        #environment-legend div div,
-        #water-height-legend div div {
-            width: 20px;
-            height: 20px;
-            border-radius: 3px;
-            margin-right: 8px;
-        }
-    </style>
-    <script type="module" src="script.js"></script>
+    <title>FloodTrack Solutions - Data Visualization</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>FloodTrack Solutions</h1>
-    </header>
-    <div id="environment-graph-container">
-        <h2>Environmental Measurements</h2>
-        <svg id="environment-graph"></svg>
-        <div id="environment-legend"></div>
+    <div class="container">
+        <header>
+            <img src="logo.png" alt="FloodTrack Solutions Logo" id="logo">
+            <h1>FloodTrack Solutions Data Visualization</h1>
+        </header>
+        
+        <div id="environment-graph" class="graph-area"></div>
+        <div id="water-height-graph" class="graph-area"></div>
+        
+        <div id="legend" class="legend">
+            <h3>Legend</h3>
+            <div><span class="legend-item" style="color: steelblue;">&#9679;</span> Temperature</div>
+            <div><span class="legend-item" style="color: orange;">&#9679;</span> Humidity</div>
+            <div><span class="legend-item" style="color: green;">&#9679;</span> Pressure</div>
+            <div><span class="legend-item" style="color: purple;">&#9679;</span> Radar Height</div>
+            <div><span class="legend-item" style="color: teal;">&#9679;</span> Ultrasonic Height</div>
+        </div>
     </div>
-    <div id="water-height-graph-container">
-        <h2>Water Height Measurements</h2>
-        <svg id="water-height-graph"></svg>
-        <div id="water-height-legend"></div>
-    </div>
+
+    <script src="https://unpkg.com/d3@7"></script>
+    <script src="https://unpkg.com/@influxdata/influxdb-client/dist/influxdb-client.browser.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
-
