@@ -3,22 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>InfluxDB Data Visualization with D3</title>
+  <title>InfluxDB Multi-Field Visualization with D3</title>
+  
+  <!-- Include D3.js -->
   <script src="https://d3js.org/d3.v7.min.js"></script>
+  
+  <!-- Sleek Design -->
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 0;
     }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .chart-container {
+      width: 90%;
+      max-width: 1000px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .legend {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      font-size: 0.9em;
+    }
+
+    .legend-color {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+
     svg {
-      background-color: #f9f9f9;
-      border: 1px solid #ccc;
+      width: 100%;
+      height: 500px;
+      border: 1px solid #ddd;
     }
   </style>
 </head>
 <body>
 
-  <h1>InfluxDB Data Visualization with D3.js</h1>
-  <svg width="800" height="400"></svg>
+  <div class="container">
+    <h1>InfluxDB Multi-Field Visualization with D3.js</h1>
+
+    <div class="chart-container">
+      <svg></svg>
+
+      <!-- Legend for the lines -->
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-color" style="background-color: steelblue;"></div>
+          Temperature
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background-color: orange;"></div>
+          Humidity
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background-color: green;"></div>
+          Pressure
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background-color: red;"></div>
+          Water Height
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
