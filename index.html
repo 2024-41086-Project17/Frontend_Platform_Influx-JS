@@ -12,7 +12,7 @@
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: url('https://www.transparenttextures.com/patterns/water.png') repeat;
+            background: linear-gradient(to bottom, #e0f7fa, #b2ebf2);
             margin: 0;
             padding: 20px;
         }
@@ -20,26 +20,22 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 30px;
             background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 2.5em;
-            color: #333;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
 
         #logo {
             display: block;
             margin: 0 auto;
-            width: 200px;
+            width: 250px; /* Adjust size as needed */
         }
 
         .graph-section {
             margin-top: 40px;
+            border-top: 2px solid #00695c;
+            padding-top: 20px;
         }
 
         svg {
@@ -51,9 +47,10 @@
 
         .graph-title {
             text-align: center;
-            font-size: 1.8em;
-            color: #555;
+            font-size: 1.5em;
+            color: #00695c;
             margin-bottom: 10px;
+            font-weight: bold;
         }
 
         /* Styles for the axes and lines */
@@ -72,23 +69,23 @@
 
         /* Line colors */
         .line-temperature {
-            stroke: steelblue;
+            stroke: #ff7043; /* Coral */
         }
 
         .line-humidity {
-            stroke: orange;
+            stroke: #42a5f5; /* Light Blue */
         }
 
         .line-pressure {
-            stroke: green;
+            stroke: #66bb6a; /* Light Green */
         }
 
         .line-radar {
-            stroke: purple;
+            stroke: #ab47bc; /* Purple */
         }
 
         .line-ultrasonic {
-            stroke: teal;
+            stroke: #ffb74d; /* Orange */
         }
 
         /* Legend styles */
@@ -96,7 +93,7 @@
             display: flex;
             justify-content: center;
             margin-top: 20px;
-            font-size: 1.2em;
+            font-size: 1em;
         }
 
         .legend-item {
@@ -122,19 +119,16 @@
         <!-- Logo -->
         <img src="logo.png" alt="FloodTrack Solutions" id="logo">
 
-        <!-- Title -->
-        <h1>FloodTrack Solutions - Environmental Data Dashboard</h1>
-
         <!-- Graph Section for Environmental Data -->
         <div class="graph-section">
-            <div class="graph-title">Environmental Measurements (Temperature, Humidity, Pressure)</div>
+            <div class="graph-title">Environmental Measurements</div>
             <svg id="environment-graph"></svg>
             <div class="legend" id="environment-legend"></div>
         </div>
 
         <!-- Graph Section for Water Height Data -->
         <div class="graph-section">
-            <div class="graph-title">Water Height Measurements (Radar and Ultrasonic)</div>
+            <div class="graph-title">Water Height Measurements</div>
             <svg id="water-height-graph"></svg>
             <div class="legend" id="water-height-legend"></div>
         </div>
@@ -145,4 +139,5 @@
 
 </body>
 </html>
+
 
