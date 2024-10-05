@@ -44,6 +44,20 @@ queryApi.queryRows(query, {
   error(error) {
     console.error(error);
   },
+
+   complete() {
+    console.log('Data fetched, ready to visualize');
+
+    // Handle empty data case
+    if (dataPoints.temperature.length === 0 && 
+        dataPoints.humidity.length === 0 && 
+        dataPoints.pressure.length === 0 && 
+        dataPoints.radar_height.length === 0 && 
+        dataPoints.ultrasonic_height.length === 0) {
+        console.error('No data returned from InfluxDB.');
+        return; // Prevent visualization if no data is available
+    }
+     
   complete() {
     console.log('Data fetched, ready to visualize');
     // Call D3 visualization functions after data is fetched
