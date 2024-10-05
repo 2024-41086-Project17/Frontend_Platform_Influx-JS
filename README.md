@@ -1,6 +1,6 @@
 # influxdb-js-app
 
-1. HTML Provides Structure: Your index.html defines the containers (<svg>, <div>, etc.) where D3.js visualizations will be placed.
+1. HTML Provides Structure: Your index.html defines the containers (<svg>, <div>, etc.)   where D3.js visualizations will be placed.
 
 2. JavaScript (with D3.js) Interacts with DOM: In script.js, D3.js selects and manipulates these DOM elements (like <svg> tags) to insert dynamic visual elements based on data.
 
