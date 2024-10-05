@@ -1,13 +1,13 @@
 import * as d3 from 'd3';
 import { InfluxDB } from '@influxdata/influxdb-client';
 
-// InfluxDB connection details (same as before)
-const url = process.env.INFLUXDB_URL;
-const token = process.env.INFLUXDB_TOKEN;
-const org = process.env.INFLUXDB_ORG;
-const bucket = process.env.INFLUXDB_BUCKET;
+// InfluxDB connection details
+const url = process.env.INFLUXDB_URL; // Your InfluxDB URL
+const token = process.env.INFLUXDB_TOKEN; // Your InfluxDB API token
+const org = process.env.INFLUXDB_ORG; // Your InfluxDB organization
+const bucket = process.env.INFLUXDB_BUCKET; // Your InfluxDB bucket
 
-const queryApi = new InfluxDB({ url, token }).getQueryApi(org);
+const queryApi = new InfluxDB({ url, token }).getQueryApi(org); 
 
 // Store data for each measurement field
 let dataPoints = {
@@ -85,7 +85,7 @@ function visualizeEnvironmentData(data) {
   
   // Set the domains based on the data
   x.domain(d3.extent(data.temperature, d => d.time));  // Assuming all measurements share the same time range
-  y.domain([0, d3.max(data.temperature, d => d.value)]);  // Adjust this for multiple fields if needed
+  y.domain([0, d3.max(data.temperature.concat(data.humidity, data.pressure), d => d.value)]);  // Adjust this for multiple fields if needed
   
   // Add the temperature line
   svg.append("path")
@@ -150,7 +150,7 @@ function visualizeWaterHeightData(data) {
   
   // Set the domains based on the data
   x.domain(d3.extent(data.radar_height, d => d.time));  // Assuming radar and ultrasonic share the same time range
-  y.domain([0, d3.max(data.radar_height, d => d.value)]);  // Adjust this for both fields
+  y.domain([0, d3.max(data.radar_height.concat(data.ultrasonic_height), d => d.value)]);  // Adjust this for both fields
   
   // Add the radar water height line
   svg.append("path")
