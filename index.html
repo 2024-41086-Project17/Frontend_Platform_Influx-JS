@@ -1,33 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FloodTrack Solutions - Data Visualization</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FloodTrack Solutions - Data Visualization</title>
+  
+  <!-- Include D3.js -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  
+  <!-- Sleek Design and Layout -->
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    h1 {
+      color: #333;
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .chart-container, .water-height-container {
+      width: 90%;
+      max-width: 1000px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+    }
+
+    .legend {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      font-size: 0.9em;
+    }
+
+    .legend-color {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+
+    svg {
+      width: 100%;
+      height: 500px;
+      border: 1px solid #ddd;
+    }
+
+    /* Style for the logo */
+    .logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+
+    .logo img {
+      max-width: 300px;
+      height: auto;
+    }
+
+    .graph-section-title {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.5em;
+      color: #444;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img src="logo.png" alt="FloodTrack Solutions Logo" id="logo">
-            <h1>FloodTrack Solutions Data Visualization</h1>
-        </header>
-        
-        <div id="environment-graph" class="graph-area"></div>
-        <div id="water-height-graph" class="graph-area"></div>
-        
-        <div id="legend" class="legend">
-            <h3>Legend</h3>
-            <div><span class="legend-item" style="color: steelblue;">&#9679;</span> Temperature</div>
-            <div><span class="legend-item" style="color: orange;">&#9679;</span> Humidity</div>
-            <div><span class="legend-item" style="color: green;">&#9679;</span> Pressure</div>
-            <div><span class="legend-item" style="color: purple;">&#9679;</span> Radar Height</div>
-            <div><span class="legend-item" style="color: teal;">&#9679;</span> Ultrasonic Height</div>
+
+  <!-- Logo Section -->
+  <div class="logo">
+    <img src="logo.png" alt="FloodTrack Solutions Logo"> <!-- Replace with actual logo path -->
+  </div>
+
+  <div class="container">
+    
+    <!-- Graph for temperature, humidity, pressure, wind speed -->
+    <h1>Environmental Data Visualization</h1>
+    <div class="chart-container">
+      <svg id="environment-graph"></svg>
+
+      <!-- Legend for the lines -->
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-color" style="background-color: steelblue;"></div>
+          Temperature
         </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background-color: orange;"></div>
+          Humidity
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background-color: green;"></div>
+          Pressure
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background-color: red;"></div>
+          Wind Speed
+        </div>
+      </div>
     </div>
 
-    <script src="https://unpkg.com/d3@7"></script>
-    <script src="https://unpkg.com/@influxdata/influxdb-client/dist/influxdb-client.browser.js"></script>
-    <script src="script.js"></script>
+    <!-- Graph for radar and ultrasonic water height -->
+    <h1 class="graph-section-title">Water Height Measurement</h1>
+    <div class="water-height-container">
+      <svg id="water-height-graph"></svg>
+
+      <!-- Legend for radar and ultrasonic water height -->
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-color" style="background-color: purple;"></div>
+          Radar Water Height
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background-color: teal;"></div>
+          Ultrasonic Water Height
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
