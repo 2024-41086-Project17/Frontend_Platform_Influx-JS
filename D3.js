@@ -177,3 +177,11 @@ function visualizeWaterHeightData(data) {
   svg.append("g")
     .call(d3.axisLeft(y));
 }
+ // Create the legend for environmental measurements
+  const legend = d3.select("#environment-legend");
+  legend.append("div").attr("class", "legend-item")
+    .html('<div class="legend-color" style="background: steelblue;"></div> Temperature');
+  legend.append("div").attr("class", "legend-item")
+    .html('<div class="legend-color" style="background: orange;"></div> Humidity');
+  legend.append("div").attr("class", "legend-item")
+    .html('<div class="legend-color" style="background: green;"></div>
